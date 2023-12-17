@@ -86,10 +86,10 @@ def part_2(original_grid: list(), num_of_cycle: int = 1000000000):
 
     # print(f"After cycle 0: {original_grid}")
 
-    grid2cycle = dict()
+    grid_to_cycle = dict()
 
     cur_grid = original_grid
-    grid2cycle['|'.join(cur_grid)] = 0
+    grid_to_cycle['|'.join(cur_grid)] = 0
     found_cycle = -1
     for i in range(1, num_of_cycle + 1):
         tilted_north = transpose_grid(tilt_left(transpose_grid(cur_grid)))
@@ -101,11 +101,11 @@ def part_2(original_grid: list(), num_of_cycle: int = 1000000000):
         cur_grid = tilted_east
         
         cur_key = '|'.join(cur_grid)
-        if cur_key in grid2cycle:
-            found_cycle = grid2cycle[cur_key]
+        if cur_key in grid_to_cycle:
+            found_cycle = grid_to_cycle[cur_key]
             break
         else:
-            grid2cycle[cur_key] = i
+            grid_to_cycle[cur_key] = i
 
     # print(f"Running for { num_of_cycle } cycles.")
     # print(f"The start of a cycle is cycle {found_cycle}.")
@@ -114,7 +114,7 @@ def part_2(original_grid: list(), num_of_cycle: int = 1000000000):
     remainder = (num_of_cycle - found_cycle) % (i - found_cycle)
     # print(f"Reminder = {remainder} so the last grid looks like cycle {found_cycle + remainder}.")
 
-    for key, value in grid2cycle.items():
+    for key, value in grid_to_cycle.items():
         if value == found_cycle + remainder:
             grid = key.split('|')
             # print(grid)
