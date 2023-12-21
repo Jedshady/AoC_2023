@@ -48,10 +48,10 @@ def main():
         cur_min_dist, cur_node, last_direction, step_in_direction = heapq.heappop(Q)
         # print(f"Exploring {cur_node} because it has min distance to start node of {cur_min_dist}.")
         
-        if (cur_node[0], cur_node[1], last_direction, step_in_direction) in visited:
+        if (cur_node, last_direction, step_in_direction) in visited:
             continue
         else:
-            visited[(cur_node[0], cur_node[1], last_direction, step_in_direction)] = cur_min_dist
+            visited[(cur_node, last_direction, step_in_direction)] = cur_min_dist
         
         for direction, neighbour in neighbours(cur_node, grid):
             # print(f"Updating its neighbour {neighbour}")
@@ -74,8 +74,8 @@ def main():
             # print(visited)
 
 
-    for (node_x, node_y, last_direction, step_in_direction), v in visited.items():
-        if (node_x, node_y) == final_node:
+    for (node, last_direction, step_in_direction), v in visited.items():
+        if node == final_node:
             print(f"Final node {final_node} has distance of {v} to the start node.")
 
 
