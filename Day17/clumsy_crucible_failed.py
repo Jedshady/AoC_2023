@@ -1,5 +1,10 @@
 #!/usr/bin/env python3 -u
 
+"""
+First attempt using Dijkstra, but it does not work properly.
+It only finds one path but not neccessarily the shortest under the constraint of 3 steps.
+"""
+
 import sys
 import heapq
 from math import inf
