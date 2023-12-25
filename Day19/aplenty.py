@@ -13,7 +13,7 @@ def test_workflow(part: list(), flowname: str, workflows: dict()) -> [str, str]:
     for key, value in part.items():
         globals()[key] = value
         
-    logging.debug(f"{x=} {m=} {a=} {s=}")
+    # logging.debug(f"{x=} {m=} {a=} {s=}")
 
     workflow = workflows[flowname]
     for flow in workflow:
