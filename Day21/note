@@ -1,0 +1,35 @@
+After a while, every <width> steps the difference between the answer at steps <n> and <n - width> increases by a constant amount.
+
+The special part about the big input is that:
+Horizontal and vertical line on where the S is are all dot. There is no blocks (#) on both lines.
+The self_made_input, where # is replaced by dot on the vertical and horizontal lines of S, follows this rule.  
+
+
+For example:
+With original_input, the <width> is 131, the starting point is at <65, 65>
+
+Step                        Number of Points        Difference      Difference of difference (constant)
+65      65                  3802                        
+196     65+131              33732                   29930   
+327     65+131+131          93480                   59748           29818
+458     65+131+131+131      183046                  89566           29818
+
+(26501365 - 65) / 131 = 202300
+
+
+With original_input_2, the <width> is 131, the starting point is at <65, 65>
+
+Step                        Number of Points        Difference      Difference of difference (constant)
+65      65                  3835                        
+196     65+131              34125                   30290   
+327     65+131+131          94603                   60478           30188
+458     65+131+131+131      185269                  90666           30188
+
+
+With self_made_input, the <width> is 11, the starting point is at <5, 5>
+
+Step                    Number of Points    Difference      Difference of difference (constant)
+5       5               26                        
+16      5+11            216                 190   
+27      5+11+11         588                 372             182
+38      5+11+11+11      1142                554             182

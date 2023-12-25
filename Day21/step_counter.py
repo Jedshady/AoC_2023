@@ -43,11 +43,28 @@ def part_1(start_point: tuple(), grid: tuple(), total_steps: int) -> int:
             for point in possible_points:
                 next_step_points.add(point)
         cur_step_points = list(next_step_points)
+
+        logging.info(f"{cur_step=} {len(cur_step_points)}")
+        
         cur_step += 1
 
     logging.debug(f"{cur_step_points}")
 
     return len(cur_step_points)
+
+
+def part_2():
+    difference = [29930]
+    for i in range(202300 - 1):
+        difference.append(difference[-1] + 29818)
+
+    num = 3802
+    for i in range(202300):
+        num += difference[i]
+
+    logging.debug(f"{num=}")
+    
+    return num
 
 
 def main():
@@ -67,11 +84,14 @@ def main():
     # logging.debug(f"{grid=}")
     # logging.debug(f"{start_point=}")
 
-    part_1_res = part_1(start_point, grid, 50)
-    print(f"{part_1_res}")
+    part_1_res = part_1(start_point, grid, 38)
 
+    # Test for part 2
+    # part_1(start_point, grid, 459)
 
+    # part_2_res = part_2()
 
+    # print(f"{part_1_res}, {part_2_res}")
     
 
 if __name__ == "__main__":
