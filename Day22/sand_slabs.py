@@ -81,15 +81,18 @@ def main():
         supporting_state[idx] = {'supported_by': [], 'supporting': []}
 
     for cur_z in range(min_z_start, max_z_start+1):
-    # for cur_z in range(min_z_start, min_z_start+2):
+    # for cur_z in range(min_z_start, min_z_start+2):   # For testing purpose
         queue = []
         
         if cur_z in z_to_bricks:
             for brick_index in z_to_bricks[cur_z]:
                 brick_loc = initial_state[brick_index]
+
+                # Only add bricks that have start point on current height cur_z to the queue
                 if brick_loc['s_z'] == cur_z:
                     queue.append((brick_index, brick_loc))
         
+
         logging.debug(f"{cur_z=} {queue=}")
         while queue:
             b_idx, b_loc = queue.pop()
