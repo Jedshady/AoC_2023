@@ -41,7 +41,7 @@ def main():
 
         if (x, y) == final:
             steps_to_path[steps] = path
-            print(f"Found a path, {steps=}")    
+            print(f"Found a path, {abs(steps)=}")    
 
         # if steps == 18:
             # break
@@ -50,7 +50,7 @@ def main():
             path.append((x, y))
             idx = SLOPES.index(grid[x][y])
             dx, dy = OFFSETS[idx]
-            heapq.heappush(queue, (steps+1, x+dx, y+dy, path))
+            heapq.heappush(queue, (steps-1, x+dx, y+dy, path))
             continue
 
         for idx, (dx, dy) in enumerate(OFFSETS):
@@ -71,14 +71,14 @@ def main():
                     
                 split_path = copy.deepcopy(path)
                 split_path.append((x,y))
-                heapq.heappush(queue, (steps+1, x+dx, y+dy, split_path))
+                heapq.heappush(queue, (steps-1, x+dx, y+dy, split_path))
 
     max_step = 0
     for steps, path in steps_to_path.items():
         logging.debug(f"{steps=} {path=}")
-        max_step = max(max_step, steps)
+        max_step = min(max_step, steps)
 
-    print(max_step)
+    print(abs(max_step))
 
 
 
