@@ -87,7 +87,9 @@ def part_2(hails: list()):
 
     solve = Solver()
 
+    # To solve this, only need three data points. so range(len(hails)-297) also works
     for i in range(len(hails)):
+    # for i in range(len(hails)-297):
         solve.add(x + T[i] * vx - hails[i][0] - T[i] * hails[i][3] == 0)
         solve.add(y + T[i] * vy - hails[i][1] - T[i] * hails[i][4] == 0)
         solve.add(z + T[i] * vz - hails[i][2] - T[i] * hails[i][5] == 0)
