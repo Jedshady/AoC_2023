@@ -11,7 +11,7 @@ from math import inf
 def main():
     filename = "dodgy_input"
     
-    mapping: dict(str, list) = dict()
+    mapping: dict[str, list] = dict()
     current_key = None
 
     with open(filename, 'r') as file:

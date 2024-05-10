@@ -3,7 +3,7 @@
 import sys
 import copy
 
-def part_1(galaxies: list(), x_without_galaxy: list(), y_without_galaxy: list()):
+def part_1(galaxies: list, x_without_galaxy: list, y_without_galaxy: list):
     for galaxy in galaxies:
         count_x = 0
         count_y = 0
@@ -34,7 +34,7 @@ def part_1(galaxies: list(), x_without_galaxy: list(), y_without_galaxy: list())
     print(f"Part 1 result is {res}")
 
 
-def part_2(galaxies: list(), x_without_galaxy: list(), y_without_galaxy: list(), n: int = 1000000):
+def part_2(galaxies: list, x_without_galaxy: list, y_without_galaxy: list, n: int = 1000000):
     for galaxy in galaxies:
         count_x = 0
         count_y = 0

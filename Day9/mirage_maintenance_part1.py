@@ -1,7 +1,7 @@
 #!/usr/bin/env python3 -u
 
 
-def calculate_diff(i: int, j: int, input: list, diff: list):
+def calculate_diff(i: int, j: int, input: list[int], diff: list) -> list[list[int]]:
     if diff[i][j] is None:
         if i == 0:
             diff[i][j] = input[j+1] - input[j]
